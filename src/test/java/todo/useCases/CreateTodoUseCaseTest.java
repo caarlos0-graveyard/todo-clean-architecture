@@ -12,7 +12,7 @@ public class CreateTodoUseCaseTest extends BaseTodoUseCaseTest<CreateTodoUseCase
 
     @Before
     public void init() {
-        feature = new CreateTodoUseCase(persistenceAdapter);
+        feature = new CreateTodoUseCase(adapter);
     }
 
     @Test
@@ -22,9 +22,21 @@ public class CreateTodoUseCaseTest extends BaseTodoUseCaseTest<CreateTodoUseCase
     }
 
     @Test
-    public void testInvalidTodo() throws Exception {
+    public void testNullContentTodo() throws Exception {
         exception.expect(InvalidTodoException.class);
-        feature.exec(builder.build());
+        feature.exec(builder.content(null).build());
+    }
+
+    @Test
+    public void testWithEmptyContent() throws Exception {
+        exception.expect(InvalidTodoException.class);
+        feature.exec(builder.content("").build());
+    }
+
+    @Test
+    public void testWithSpacesInContent() throws Exception {
+        exception.expect(InvalidTodoException.class);
+        feature.exec(builder.content("    ").build());
     }
 
     @Test

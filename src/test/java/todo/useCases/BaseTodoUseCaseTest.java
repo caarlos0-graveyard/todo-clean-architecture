@@ -13,12 +13,12 @@ public abstract class BaseTodoUseCaseTest<T extends BaseUseCase> {
     @Rule
     public ExpectedException exception = ExpectedException.none();
     protected TodoBuider builder;
-    protected PersistenceAdapter<Todo> persistenceAdapter;
+    protected PersistenceAdapter<Todo> adapter;
     protected T feature;
 
     @Before
     public void beforeEach() {
         builder = Todo.Builder();
-        persistenceAdapter = new TodoMemoryPersistenceAdapter();
+        adapter = new TodoMemoryPersistenceAdapter();
     }
 }

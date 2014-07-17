@@ -10,7 +10,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 public class EditTodoUseCaseTest extends BaseTodoUseCaseTest<EditTodoUseCase> {
     @Before
     public void init() {
-        feature = new EditTodoUseCase(persistenceAdapter);
+        feature = new EditTodoUseCase(adapter);
     }
 
     @Test
@@ -22,7 +22,25 @@ public class EditTodoUseCaseTest extends BaseTodoUseCaseTest<EditTodoUseCase> {
     @Test
     public void testInvalidTodo() throws Exception {
         exception.expect(InvalidTodoException.class);
-        feature.exec(persistenceAdapter.persist(builder.build()));
+        feature.exec(adapter.persist(builder.build()));
+    }
+
+    @Test
+    public void testNullContentTodo() throws Exception {
+        exception.expect(InvalidTodoException.class);
+        feature.exec(adapter.persist(builder.content(null).build()));
+    }
+
+    @Test
+    public void testWithEmptyContent() throws Exception {
+        exception.expect(InvalidTodoException.class);
+        feature.exec(adapter.persist(builder.content("").build()));
+    }
+
+    @Test
+    public void testWithSpacesInContent() throws Exception {
+        exception.expect(InvalidTodoException.class);
+        feature.exec(adapter.persist(builder.content("    ").build()));
     }
 
     @Test
@@ -45,7 +63,7 @@ public class EditTodoUseCaseTest extends BaseTodoUseCaseTest<EditTodoUseCase> {
     }
 
     private Todo createTodo() {
-        return feature.exec(persistenceAdapter.persist(builder.content("Changed content").build()));
+        return feature.exec(adapter.persist(builder.content("Changed content").build()));
     }
 }
 

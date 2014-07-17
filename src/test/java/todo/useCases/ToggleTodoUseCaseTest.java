@@ -11,7 +11,7 @@ public class ToggleTodoUseCaseTest extends BaseTodoUseCaseTest<ToggleTodoUseCase
 
     @Before
     public void init() {
-        feature = new ToggleTodoUseCase(persistenceAdapter);
+        feature = new ToggleTodoUseCase(adapter);
     }
 
     @Test
@@ -28,17 +28,13 @@ public class ToggleTodoUseCaseTest extends BaseTodoUseCaseTest<ToggleTodoUseCase
 
     @Test
     public void testDo() throws Exception {
-        Todo todo = builder.content("Sample").build();
-        todo.setId(1L);
-        todo = feature.exec(todo);
+        Todo todo = feature.exec(adapter.persist(builder.content("Sample").build()));
         assertThat(todo.isDone(), equalTo(true));
     }
 
     @Test
     public void testUndo() throws Exception {
-        Todo todo = builder.content("Sample").done().build();
-        todo.setId(1L);
-        todo = feature.exec(todo);
+        Todo todo = feature.exec(adapter.persist(builder.done().content("Sample").build()));
         assertThat(todo.isDone(), equalTo(false));
     }
 }

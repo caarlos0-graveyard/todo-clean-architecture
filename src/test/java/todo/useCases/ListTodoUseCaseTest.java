@@ -1,7 +1,5 @@
 package todo.useCases;
 
-import org.hamcrest.CoreMatchers;
-import org.hamcrest.MatcherAssert;
 import org.junit.Before;
 import org.junit.Test;
 import todo.entities.Todo;
@@ -14,7 +12,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 public class ListTodoUseCaseTest extends BaseTodoUseCaseTest<ListTodoUseCase> {
     @Before
     public void init() {
-        feature = new ListTodoUseCase(persistenceAdapter);
+        feature = new ListTodoUseCase(adapter);
     }
 
     @Test
@@ -24,17 +22,17 @@ public class ListTodoUseCaseTest extends BaseTodoUseCaseTest<ListTodoUseCase> {
 
     @Test
     public void testWithItensShouldReturnAll() throws Exception {
-        persistenceAdapter.persist(builder.content("Buy Milk").done().build());
-        persistenceAdapter.persist(builder.content("Write more tests").build());
-        persistenceAdapter.persist(builder.content("Study Clean Architecture").build());
+        adapter.persist(builder.content("Refactor").done().build());
+        adapter.persist(builder.content("Write more tests").build());
+        adapter.persist(builder.content("Study Clean Architecture").build());
         assertThat(feature.exec().size(), equalTo(3));
     }
 
     @Test
     public void testReturnUpdatedList() throws Exception {
-        Todo todo = persistenceAdapter.persist(builder.content("Buy Milk").done().build());
+        Todo todo = adapter.persist(builder.content("Refactor").done().build());
         todo.toggle();
-        todo = persistenceAdapter.update(todo);
+        todo = adapter.update(todo);
         List<Todo> todos = feature.exec();
         assertThat(todos.size(), equalTo(1));
         assertThat(todos.get(0), equalTo(todo));

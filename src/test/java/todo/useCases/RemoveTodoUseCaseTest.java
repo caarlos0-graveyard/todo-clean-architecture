@@ -11,7 +11,7 @@ public class RemoveTodoUseCaseTest extends BaseTodoUseCaseTest<RemoveTodoUseCase
 
     @Before
     public void init() {
-        feature = new RemoveTodoUseCase(persistenceAdapter);
+        feature = new RemoveTodoUseCase(adapter);
     }
 
     @Test
@@ -34,15 +34,13 @@ public class RemoveTodoUseCaseTest extends BaseTodoUseCaseTest<RemoveTodoUseCase
 
     @Test
     public void testValid() throws Exception {
-        Todo todo = builder.content("Sample").build();
-        todo.setId(1L);
-        assertThat(feature.exec(todo).isRemoved(), equalTo(true));
+        Todo todo = feature.exec(adapter.persist(builder.content("Sample").build()));
+        assertThat(todo.isRemoved(), equalTo(true));
     }
 
     @Test
     public void testRemoveTwoTimes() throws Exception {
-        Todo todo = builder.content("Sample").build();
-        todo.setId(1L);
-        assertThat(feature.exec(feature.exec(todo)).isRemoved(), equalTo(true));
+        Todo todo = feature.exec(adapter.persist(builder.content("Sample").build()));
+        assertThat(feature.exec(todo).isRemoved(), equalTo(true));
     }
 }
