@@ -1,4 +1,4 @@
-# Todo, an pet project to test/learn/wharever the [Clean Architecture Concept][ca]
+# Todo, a pet project to test/learn/wharever the [Clean Architecture Concept][ca] [![Build Status](https://api.shippable.com/projects/53c7314ae1a7f82a03c9ab62/badge/master)](https://www.shippable.com/projects/53c7314ae1a7f82a03c9ab62)
 
 This is a work in progress, I just started it and I'm yet to find how to solve
 some issues. Don't trust any of this code as the right way to implement this.
