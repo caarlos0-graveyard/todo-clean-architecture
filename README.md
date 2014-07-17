@@ -1,6 +1,6 @@
 # Todo
 
-### A pet project to test/learn/wharever the [Clean Architecture Concept][ca]
+#### A pet project to test/learn/study/whatever [Clean Architecture][ca]
 
 [![Build Status](https://api.shippable.com/projects/53c7314ae1a7f82a03c9ab62/badge/master)](https://www.shippable.com/projects/53c7314ae1a7f82a03c9ab62)
 
