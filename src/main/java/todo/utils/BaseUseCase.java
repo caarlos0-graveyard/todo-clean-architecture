@@ -4,9 +4,9 @@ import todo.persistence.PersistenceAdapter;
 
 public abstract class BaseUseCase<T> {
 
-    protected PersistenceAdapter<T> persistenceAdapter;
+	protected PersistenceAdapter<T> persistenceAdapter;
 
-    public BaseUseCase(PersistenceAdapter<T> persistenceAdapter) {
-        this.persistenceAdapter = persistenceAdapter;
-    }
+	public BaseUseCase(PersistenceAdapter<T> persistenceAdapter) {
+		this.persistenceAdapter = persistenceAdapter;
+	}
 }

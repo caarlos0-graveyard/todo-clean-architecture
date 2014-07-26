@@ -6,11 +6,11 @@ import todo.useCases.base.BaseTodoUseCase;
 
 public class CreateTodoUseCase extends BaseTodoUseCase {
 
-    public CreateTodoUseCase(PersistenceAdapter<Todo> persistenceAdapter) {
-        super(persistenceAdapter);
-    }
+	public CreateTodoUseCase(PersistenceAdapter<Todo> persistenceAdapter) {
+		super(persistenceAdapter);
+	}
 
-    public Todo exec(Todo todo) {
-        return persistenceAdapter.persist(validate(todo));
-    }
+	public Todo exec(Todo todo) {
+		return persistenceAdapter.persist(validate(todo));
+	}
 }

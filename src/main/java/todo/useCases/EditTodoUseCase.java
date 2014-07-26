@@ -5,17 +5,17 @@ import todo.persistence.PersistenceAdapter;
 import todo.useCases.base.BaseTodoUseCase;
 
 public class EditTodoUseCase extends BaseTodoUseCase {
-    public EditTodoUseCase(PersistenceAdapter<Todo> persistenceAdapter) {
-        super(persistenceAdapter);
-    }
+	public EditTodoUseCase(PersistenceAdapter<Todo> persistenceAdapter) {
+		super(persistenceAdapter);
+	}
 
-    @Override
-    public Todo exec(Todo todo) {
-        return persistenceAdapter.update(validate(todo));
-    }
+	@Override
+	public Todo exec(Todo todo) {
+		return persistenceAdapter.update(validate(todo));
+	}
 
-    @Override
-    protected Todo validate(Todo todo) {
-        return validatePersisted(super.validate(todo));
-    }
+	@Override
+	protected Todo validate(Todo todo) {
+		return validatePersisted(super.validate(todo));
+	}
 }
