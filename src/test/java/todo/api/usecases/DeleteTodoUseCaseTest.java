@@ -1,4 +1,4 @@
-package todo.usecases;
+package todo.api.usecases;
 
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.notNullValue;
@@ -7,9 +7,10 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import org.junit.Before;
 import org.junit.Test;
 
-import todo.doubles.TodoRepositorySpy;
-import todo.exceptions.InvalidTodoException;
-import todo.models.Todo;
+import todo.api.doubles.TodoRepositorySpy;
+import todo.api.exceptions.InvalidTodoException;
+import todo.api.models.Todo;
+import todo.api.usecases.DeleteTodoUseCase;
 
 public class DeleteTodoUseCaseTest {
 	private DeleteTodoUseCase interactor;

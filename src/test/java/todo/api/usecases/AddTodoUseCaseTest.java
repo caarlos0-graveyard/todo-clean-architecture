@@ -1,4 +1,4 @@
-package todo.usecases;
+package todo.api.usecases;
 
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.notNullValue;
@@ -8,10 +8,10 @@ import org.junit.Test;
 import org.junit.experimental.runners.Enclosed;
 import org.junit.runner.RunWith;
 
-import todo.doubles.TodoRepositorySpy;
-import todo.exceptions.InvalidTodoException;
-import todo.models.Todo;
-import todo.usecases.AddTodoUseCase;
+import todo.api.doubles.TodoRepositorySpy;
+import todo.api.exceptions.InvalidTodoException;
+import todo.api.models.Todo;
+import todo.api.usecases.AddTodoUseCase;
 
 @RunWith(Enclosed.class)
 public class AddTodoUseCaseTest {

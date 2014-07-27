@@ -1,6 +1,6 @@
-package todo.repositories;
+package todo.api.repositories;
 
-import todo.models.Todo;
+import todo.api.models.Todo;
 
 public interface TodoRepository {
 	Todo save(Todo todo);

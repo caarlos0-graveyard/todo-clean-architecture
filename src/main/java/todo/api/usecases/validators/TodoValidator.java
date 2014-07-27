@@ -1,7 +1,7 @@
-package todo.usecases.validators;
+package todo.api.usecases.validators;
 
-import todo.exceptions.InvalidTodoException;
-import todo.models.Todo;
+import todo.api.exceptions.InvalidTodoException;
+import todo.api.models.Todo;
 
 public class TodoValidator {
 	public void validate(Todo todo) {

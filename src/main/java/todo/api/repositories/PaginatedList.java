@@ -1,4 +1,4 @@
-package todo.repositories;
+package todo.api.repositories;
 
 import java.util.List;
 

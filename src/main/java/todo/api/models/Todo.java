@@ -1,4 +1,4 @@
-package todo.models;
+package todo.api.models;
 
 public class Todo {
 	private String text;

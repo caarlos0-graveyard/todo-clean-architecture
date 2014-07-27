@@ -1,4 +1,4 @@
-package todo.usecases;
+package todo.api.usecases;
 
 import static java.util.stream.IntStream.range;
 import static org.hamcrest.CoreMatchers.equalTo;
@@ -10,10 +10,11 @@ import java.util.List;
 import org.junit.Before;
 import org.junit.Test;
 
-import todo.doubles.TodoRepositoryMock;
-import todo.models.Todo;
-import todo.repositories.ListFilter;
-import todo.repositories.PaginatedList;
+import todo.api.doubles.TodoRepositoryMock;
+import todo.api.models.Todo;
+import todo.api.repositories.ListFilter;
+import todo.api.repositories.PaginatedList;
+import todo.api.usecases.ListTodosUseCase;
 
 public class ListTodoUseCaseTest {
 

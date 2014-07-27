@@ -1,8 +1,8 @@
-package todo.usecases;
+package todo.api.usecases;
 
-import todo.models.Todo;
-import todo.repositories.TodoRepository;
-import todo.usecases.validators.TodoValidator;
+import todo.api.models.Todo;
+import todo.api.repositories.TodoRepository;
+import todo.api.usecases.validators.TodoValidator;
 
 public class AddTodoUseCase {
 	private TodoRepository repository;

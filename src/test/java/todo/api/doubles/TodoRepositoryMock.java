@@ -1,11 +1,11 @@
-package todo.doubles;
+package todo.api.doubles;
 
 import java.util.List;
 
-import todo.models.Todo;
-import todo.repositories.ListFilter;
-import todo.repositories.PaginatedList;
-import todo.repositories.TodoRepository;
+import todo.api.models.Todo;
+import todo.api.repositories.ListFilter;
+import todo.api.repositories.PaginatedList;
+import todo.api.repositories.TodoRepository;
 
 public class TodoRepositoryMock implements TodoRepository {
 
