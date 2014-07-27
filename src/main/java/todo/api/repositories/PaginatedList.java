@@ -8,6 +8,10 @@ public class PaginatedList<T> {
 	private int totalPages = 1;
 	private int pageSize = 10;
 
+	public PaginatedList() {
+		
+	}
+	
 	public PaginatedList(List<T> result, int page) {
 		this.result = result;
 		this.page = page;

@@ -4,6 +4,7 @@ public class Todo {
 	private String text;
 	private boolean done;
 	private boolean deleted;
+	private Long id;
 
 	public Todo(String text) {
 		this.text = text;
@@ -12,6 +13,13 @@ public class Todo {
 	public Todo(String text, boolean done) {
 		this.text = text;
 		this.done = done;
+	}
+
+	public Todo(Long id, String text, boolean done, boolean deleted) {
+		this.id = id;
+		this.text = text;
+		this.done = done;
+		this.deleted = deleted;
 	}
 
 	public boolean isDone() {
@@ -32,5 +40,9 @@ public class Todo {
 
 	public void setDeleted(boolean deleted) {
 		this.deleted = deleted;
+	}
+
+	public Long getId() {
+		return id;
 	}
 }

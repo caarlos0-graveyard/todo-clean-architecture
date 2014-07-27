@@ -5,10 +5,11 @@ import todo.api.repositories.ListFilter;
 import todo.api.repositories.PaginatedList;
 import todo.api.repositories.TodoRepository;
 
-public class ListTodosUseCase {
+public class ListTodosUseCase implements HasRepository {
 
 	private TodoRepository repository;
 
+	@Override
 	public void setRepository(TodoRepository repository) {
 		this.repository = repository;
 	}

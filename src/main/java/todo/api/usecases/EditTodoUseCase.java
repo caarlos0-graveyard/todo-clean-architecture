@@ -4,10 +4,11 @@ import todo.api.models.Todo;
 import todo.api.repositories.TodoRepository;
 import todo.api.usecases.validators.TodoValidator;
 
-public class EditTodoUseCase {
+public class EditTodoUseCase implements HasRepository {
 	private TodoRepository repository;
 	private TodoValidator validator = new TodoValidator();
 
+	@Override
 	public void setRepository(TodoRepository repository) {
 		this.repository = repository;
 	}

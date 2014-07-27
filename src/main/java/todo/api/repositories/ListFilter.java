@@ -4,6 +4,7 @@ public class ListFilter<T> {
 
 	private String query;
 	private int page = 1;
+	private int pageSize = 10;
 
 	public ListFilter<T> query(String query) {
 		this.query = query;
@@ -21,5 +22,17 @@ public class ListFilter<T> {
 
 	public int getPage() {
 		return page;
+	}
+
+	public String getQuery() {
+		return query;
+	}
+
+	public int getPageSize() {
+		return pageSize;
+	}
+
+	public int getOffset() {
+		return getPage() * getPageSize();
 	}
 }

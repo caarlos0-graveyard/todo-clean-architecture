@@ -10,15 +10,15 @@ import org.junit.Test;
 import todo.api.doubles.TodoRepositorySpy;
 import todo.api.exceptions.InvalidTodoException;
 import todo.api.models.Todo;
-import todo.api.usecases.ToggleStateUseCase;
+import todo.api.usecases.ToggleTodoUseCase;
 
 public class ToggleTodoUseCaseTest {
 	private TodoRepositorySpy repository;
-	private ToggleStateUseCase interactor;
+	private ToggleTodoUseCase interactor;
 
 	@Before
 	public void init() {
-		interactor = new ToggleStateUseCase();
+		interactor = new ToggleTodoUseCase();
 		repository = new TodoRepositorySpy();
 		interactor.setRepository(repository);
 	}
