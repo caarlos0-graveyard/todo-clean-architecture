@@ -6,15 +6,14 @@ import static org.junit.Assert.*;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.IntStream;
 
 import org.junit.Before;
 import org.junit.Test;
 
 import todo.doubles.TodoRepositoryMock;
 import todo.models.Todo;
-import todo.repositories.PaginatedList;
 import todo.repositories.ListFilter;
+import todo.repositories.PaginatedList;
 
 public class ListTodoUseCaseTest {
 
@@ -42,7 +41,7 @@ public class ListTodoUseCaseTest {
 
 	@Test
 	public void testQueryTodos() throws Exception {
-		repository.setList(generateTodos(20));
+		repository.setList(generateTodos(1));
 		ListFilter<Todo> filter = new ListFilter<Todo>()
 				.query("Item 1")
 				.build();
@@ -65,19 +64,7 @@ public class ListTodoUseCaseTest {
 		assertThat(todos.getCurrentPage(), equalTo(2));
 		assertThat(todos.getPageSize(), equalTo(10));
 	}
-
-	// @Test
-	// public void testListWithThreePagesGettingPageTwo() throws Exception {
-	// repository.setList(generateTodos(25));
-	//
-	// PaginatedList<Todo> todos = interactor.list();
-	//
-	// assertThat(todos.getResult().size(), equalTo(25));
-	// assertThat(todos.getTotalPages(), equalTo(3));
-	// assertThat(todos.getCurrentPage(), equalTo(1));
-	// assertThat(todos.getPageSize(), equalTo(10));
-	// }
-
+	
 	private List<Todo> generateTodos(int amount) {
 		List<Todo> todos = new ArrayList<>();
 		range(0, amount)

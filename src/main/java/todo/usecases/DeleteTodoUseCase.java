@@ -4,7 +4,7 @@ import todo.models.Todo;
 import todo.repositories.TodoRepository;
 import todo.usecases.validators.TodoValidator;
 
-public class ToggleStateUseCase {
+public class DeleteTodoUseCase {
 	private TodoRepository repository;
 	private TodoValidator validator = new TodoValidator();
 
@@ -12,9 +12,10 @@ public class ToggleStateUseCase {
 		this.repository = repository;
 	}
 
-	public Todo toggle(Todo todo) {
+	public Todo remove(Todo todo) {
 		validator.validate(todo);
-		todo.setDone(!todo.isDone());
+		todo.setDeleted(true);
 		return repository.save(todo);
 	}
+
 }

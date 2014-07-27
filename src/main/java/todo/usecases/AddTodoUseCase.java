@@ -1,19 +1,19 @@
 package todo.usecases;
 
-import todo.exceptions.InvalidTodoException;
 import todo.models.Todo;
 import todo.repositories.TodoRepository;
+import todo.usecases.validators.TodoValidator;
 
 public class AddTodoUseCase {
 	private TodoRepository repository;
+	private TodoValidator validator = new TodoValidator();
 
 	public void setRepository(TodoRepository repository) {
 		this.repository = repository;
 	}
 
 	public Todo create(String text) {
-		if (text == null || text.trim().isEmpty())
-			throw new InvalidTodoException();
+		validator.validate(text);
 		return repository.save(new Todo(text));
 	}
 }
